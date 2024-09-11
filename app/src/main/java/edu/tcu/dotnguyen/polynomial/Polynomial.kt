@@ -15,9 +15,9 @@ class Polynomial(val name: String) {
         return terms.joinToString(" ") { term ->
             // If the coefficient is negative, prepend "-" to the term, otherwise prepend "+"
             if (term.coefficient < 0) {
-                term.toString().replaceFirst("-", " - ")
+                term.toString().replaceFirst("-", "- ")
             } else {
-                " + ${term.toString()}"
+                "+ ${term.toString()}"
             }
         }.trimStart(' ', '+') // Remove the leading '+' sign from the first term
     }
