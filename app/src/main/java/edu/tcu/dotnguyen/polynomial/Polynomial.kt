@@ -12,9 +12,14 @@ class Polynomial(val name: String) {
     // Override toString() to display the polynomial in a readable format.
     override fun toString(): String {
         // Join all the terms together, properly formatting the sign between terms.
-        return terms.joinToString(" + ") { term ->
-            term.toString().replace("+ -", "- ")   // Replace "+ -" with "-" for correct formatting.
-        }
+        return terms.joinToString(" ") { term ->
+            // If the coefficient is negative, prepend "-" to the term, otherwise prepend "+"
+            if (term.coefficient < 0) {
+                term.toString().replaceFirst("-", " - ")
+            } else {
+                " + ${term.toString()}"
+            }
+        }.trimStart(' ', '+') // Remove the leading '+' sign from the first term
     }
 }
 
