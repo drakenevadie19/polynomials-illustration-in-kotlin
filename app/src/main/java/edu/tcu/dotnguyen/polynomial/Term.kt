@@ -9,13 +9,31 @@ data class Term(
     // Override toString() to display the term in a readable format.
     override fun toString(): String {
         // Format for the x part (e.g., "(x^6)"). If the exponent is 0, don't display x.
-        val xPart = if (xExponent == 0) "" else "(x^$xExponent)"
+        val xPart = if (xExponent == 0) {
+            ""
+        } else if (xExponent == 1) {
+            "(x)"
+        } else {
+            "(x^$xExponent)"
+        }
 
         // Format for the y part (e.g., "(y^3)"). If the exponent is 0, don't display y.
-        val yPart = if (yExponent == 0) "" else "(y^$yExponent)"
+        val yPart = if (yExponent == 0) {
+            ""
+        } else if (yExponent == 1) {
+            "(y)"
+        } else {
+            "(y^$yExponent)"
+        }
 
         // Format for the z part (e.g., "(z^2)"). If the exponent is 0, don't display z.
-        val zPart = if (zExponent == 0) "" else "(z^$zExponent)"
+        val zPart = if (zExponent == 0) {
+            ""
+        } else if (zExponent == 1) {
+            "(z)"
+        } else {
+            "(z^$zExponent)"
+        }
 
         // Handle special cases for the coefficient (1, -1) and if the exponents are all 0.
         val coefficientPart = if (coefficient == 1 && xExponent == 0 && yExponent == 0 && zExponent == 0) "1"
