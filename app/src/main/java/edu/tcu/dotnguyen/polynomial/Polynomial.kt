@@ -2,7 +2,7 @@ package edu.tcu.dotnguyen.polynomial
 
 class Polynomial(val name: String) {
     // List to store the terms of the polynomial.
-    val terms = mutableListOf<Term>()
+    private val terms = mutableListOf<Term>()
 
     // Method to add a term to the polynomial.
     fun addTerm(term: Term) {
@@ -17,7 +17,7 @@ class Polynomial(val name: String) {
             if (term.coefficient < 0) {
                 term.toString().replaceFirst("-", "- ")
             } else {
-                "+ ${term.toString()}"
+                "+ $term"
             }
         }.trimStart(' ', '+') // Remove the leading '+' sign from the first term
     }

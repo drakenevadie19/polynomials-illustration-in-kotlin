@@ -14,7 +14,11 @@ data class Term(
         } else if (xExponent == 1) {
             "(x)"
         } else {
-            "(x^$xExponent)"
+            if (xExponent < 0) {
+                "(x^($xExponent))"
+            } else {
+                "(x^$xExponent)"
+            }
         }
 
         // Format for the y part (e.g., "(y^3)"). If the exponent is 0, don't display y.
@@ -23,7 +27,11 @@ data class Term(
         } else if (yExponent == 1) {
             "(y)"
         } else {
-            "(y^$yExponent)"
+            if (yExponent < 0) {
+                "(y^($yExponent))"
+            } else {
+                "(y^$yExponent)"
+            }
         }
 
         // Format for the z part (e.g., "(z^2)"). If the exponent is 0, don't display z.
@@ -32,7 +40,11 @@ data class Term(
         } else if (zExponent == 1) {
             "(z)"
         } else {
-            "(z^$zExponent)"
+            if (zExponent < 0) {
+                "(z^($zExponent))"
+            } else {
+                "(z^$zExponent)"
+            }
         }
 
         // Handle special cases for the coefficient (1, -1) and if the exponents are all 0.
